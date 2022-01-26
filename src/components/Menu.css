@@ -1,0 +1,27 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    color:rgb(51, 51, 88);
+    list-style: none;
+    margin-left: 2rem;
+}
+.header-flex{
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 5px auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+.menuBar {
+    display: flex;
+    margin: auto;
+}
