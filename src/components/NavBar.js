@@ -1,7 +1,7 @@
 import React from 'react';
-import './Menu.css';
+import './NavBar.css';
 
-export default function Menu(){
+export default function NavBar(){
     return <div><header className='header-flex'>
                         <a href='index.html'><h1>Michi Store</h1></a>
                         <nav>
