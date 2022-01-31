@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.css';
+import CarWidget from './CarWidget';
 
 export default function NavBar(){
     return <div><header className='header-flex'>
@@ -10,6 +11,7 @@ export default function NavBar(){
                                 <li><a href='#'>Parlantes</a></li>
                                 <li><a href='#'>Otros</a></li>
                             </ul>
+                            <CarWidget />
                         </nav>
                 </header>
             </div>

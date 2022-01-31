@@ -1,0 +1,14 @@
+.iconoCarrito {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    margin-right: 5px;
+}
+
+.divCarritoFlex{
+    display: flex;
+    width: 5rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
