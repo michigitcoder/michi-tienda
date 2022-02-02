@@ -1,0 +1,23 @@
+.cardProducto {
+    background-color: rgb(187, 186, 212);
+    width: 200px;
+}
+
+.divContador{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.tituloCard {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.contador {
+    font-size: 1.2rem;
+}
+.botonContador {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    width: 2rem;
+}
