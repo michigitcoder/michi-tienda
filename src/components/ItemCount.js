@@ -4,7 +4,6 @@ import { useState } from "react";
 export default function ItemCount({ stock, initial, onAdd}){
     const [contador, setContador] = useState(initial);
     
-   
     function decrementarContador(){
         setContador((contador<=1) ? 1 : (contador - 1));
         //<= 1 para que siempre tengas algo para agregar al carrito, 
@@ -15,6 +14,9 @@ export default function ItemCount({ stock, initial, onAdd}){
         setContador((contador >= stock) ? stock : (contador + 1) )
     }
 
+    function agregarCarrito(){
+        onAdd(contador);
+    }
     
     return (
         <div className="cardProducto">
@@ -24,7 +26,7 @@ export default function ItemCount({ stock, initial, onAdd}){
                 <p className="contador">{contador}</p>
                 <button className="botonContador" onClick={aumentarContador}>+</button>
             </div>
-            <button onClick={onAdd}>Agregar al Carrito</button>
+            <button onClick={agregarCarrito}>Agregar al Carrito</button>
         </div>
     )
 }

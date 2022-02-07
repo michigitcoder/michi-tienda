@@ -1,5 +1,5 @@
 import './NavBar.css';
-import CarWidget from './CarWidget';
+import CartWidget from './CartWidget';
 
 export default function NavBar(){
     return <div><header className='header-flex'>
@@ -10,7 +10,7 @@ export default function NavBar(){
                                 <li><a href='#'>Parlantes</a></li>
                                 <li><a href='#'>Otros</a></li>
                             </ul>
-                            <CarWidget />
+                            <CartWidget />
                         </nav>
                 </header>
             </div>

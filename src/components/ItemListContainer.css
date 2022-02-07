@@ -3,3 +3,8 @@
     font-weight: bold;
     font-size: 3rem;
 }
+
+.divItemListContainer{
+    max-width: 900px;
+    margin: auto;
+}

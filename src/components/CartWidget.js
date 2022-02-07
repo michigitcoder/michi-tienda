@@ -1,8 +1,8 @@
-import React, { useDebugValue } from 'react';
-import './CarWidget.css';
+// import React from 'react';
+import './CartWidget.css';
 import carritoImagen from '../imagenes/carrito.png'
 
-function CarWidget(){
+function CartWidget(){
     return (
         <div className = 'divCarritoFlex'>
               <img className = 'iconoCarrito' src = {carritoImagen} alt = "Imagen carrito" />    
@@ -10,4 +10,4 @@ function CarWidget(){
         </div>)
 }
 
-export default CarWidget;
+export default CartWidget;
