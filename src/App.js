@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 let itemPrueba = {  ruta:'https://http2.mlstatic.com/D_NQ_NP_971510-MLA46260077895_062021-O.jpg',
@@ -15,8 +16,11 @@ function App() {
     <div className="App">
       <NavBar />
       <ItemListContainer greeting = "Hola, bienvenidos a la tienda" />
+      <p>Item Detail Container</p>
+      <ItemDetailContainer />
+      <p>MICHI-TIENDA</p>
       
-      <header className="App-header">
+      {/* <header className="App-header">
         
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -30,7 +34,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
