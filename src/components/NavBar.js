@@ -1,14 +1,15 @@
 import './NavBar.css';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 export default function NavBar(){
     return <div><header className='header-flex'>
-                        <a href='index.html'><h1>Michi Store</h1></a>
+                        <h1><Link to={'/'}>Michi Store</Link></h1>
                         <nav>
                             <ul className ='menuBar'>
-                                <li><a href='#'>Celulares</a></li>
-                                <li><a href='#'>Parlantes</a></li>
-                                <li><a href='#'>Otros</a></li>
+                                <li><Link to={'/categoria/telefonos'}>Telefonos</Link></li>
+                                <li><Link to={'/categoria/tablets'}>Tablet</Link></li>
+                                <li><Link to={'/categoria/parlantes'}>Parlantes</Link></li>
                             </ul>
                             <CartWidget />
                         </nav>

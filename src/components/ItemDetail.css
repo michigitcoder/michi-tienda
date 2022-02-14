@@ -1,10 +1,10 @@
-.imagenProducto {
-    width: 200px;
-    height: 200px;
+.imagenDetailProducto {
+    width: 400px;
+    height: 400px;
     object-fit: contain;
     margin-right: 5px;
 }
 
-.divItem{
+.divDetailItem{
     min-width: 200px;
 }

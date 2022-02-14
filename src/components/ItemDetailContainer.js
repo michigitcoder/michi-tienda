@@ -1,21 +1,21 @@
 // import './ItemDetailContainer.css'
 import { useState, useEffect } from 'react';
-import { obtenerProductos } from '../api';
+import { getItems } from '../api';
 import ItemDetail from './ItemDetail';
-
+import { useParams } from 'react-router-dom';
 
 export default function ItemDetailContainer(){
     const [producto, setProducto] = useState();
-    const idBuscar = 2;
-    console.log('Id item a buscar' + idBuscar);
+    // const idBuscar = 2;
+    const {productoId} = useParams();
     useEffect(()=>{
-        obtenerProductos().then(function(productos){
-            const producto = productos.find((item) => item.id === idBuscar);
+        getItems().then(function(productos){
+            const producto = productos.find((item) => item.id === Number(productoId));
             setProducto(producto);
             
         })
 
-    },[]);
+    },[productoId]);
     return (
         <div>
             { !producto  ? <p>Esperando los productos</p>: <ItemDetail item = {producto} />}

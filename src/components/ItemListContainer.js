@@ -1,18 +1,28 @@
 import './ItemListContainer.css'
 import ItemCount from "./ItemCount";
 import { useState, useEffect } from 'react';
-import { obtenerProductos } from '../api';
+import { getItems } from '../api';
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
 
 
 export default function ItemListContainer({greeting}){
     const [productos, setProductos] = useState([]);
-
+    const {categoria} = useParams();
+    // const productosFiltrados = [];
+    
     useEffect(()=>{
-        obtenerProductos().then(function(productos){
-            setProductos(productos);
-        })
-    },[]);
+                    (!categoria ? 
+                                getItems().then(function(productos){
+                                    setProductos(productos);
+                                })
+                                :getItems().then(function(productos){
+                                    const productosFiltrados = productos.filter((p)=> p.categoria === categoria)
+                                    setProductos(productosFiltrados);
+                                })
+                    )
+                }
+        ,[categoria]);
 
     function agregarItems(cantidad){
         console.log('Se agregaron  ' + cantidad + ' items');
