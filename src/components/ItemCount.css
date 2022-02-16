@@ -1,6 +1,10 @@
-.cardProducto {
+.itemCountProducto {
     background-color: rgb(187, 186, 212);
     width: 200px;
+}
+.itemCountProducto *{
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .divContador{

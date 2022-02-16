@@ -19,8 +19,7 @@ export default function ItemCount({ stock, initial, onAdd}){
     }
     
     return (
-        <div className="cardProducto">
-            <p className="tituloCard">Redmi Note 10</p>
+        <div className="itemCountProducto">
             <div className="divContador">
                 <button className="botonContador" onClick={decrementarContador}>-</button>
                 <p className="contador">{contador}</p>
