@@ -29,6 +29,10 @@ function App() {
           element ={<ItemDetailContainer />}
         />
         <Route 
+          path='/cart'
+          element = {<p>Lista de productos a mostrar</p>}
+        />
+        <Route 
           path='*'
           element = {<p>Error 404</p>}
         />
