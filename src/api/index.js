@@ -69,7 +69,6 @@ const PRODUCTOS = [
 const promesa = new Promise(function(resolve,reject){
     
     setTimeout(function(){
-        console.log("llamada al getItem");
         resolve(PRODUCTOS);
     },1000)  //Simulacion de llamada a BackEnd, demora de 1000ms = 1segundo
 });
