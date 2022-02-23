@@ -31,8 +31,14 @@ export default function CartContextProvider({children}){
         carrito.map((p) => cantidadItem = cantidadItem + p.cantidad);
         return cantidadItem;
     }
+    const totalPrecio = () => {
+        let total = 0;
+        carrito.map((p) => total = total + (p.cantidad * p.precio));
+        return total;
+    }
+
     return (
-        <CartContext.Provider value = {{carrito, addItem, clear, removeItem,cantidadProductos}}>
+        <CartContext.Provider value = {{carrito, addItem, clear, removeItem,cantidadProductos,totalPrecio}}>
            {children} 
         </CartContext.Provider>
     )

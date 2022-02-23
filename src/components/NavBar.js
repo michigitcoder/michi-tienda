@@ -1,8 +1,12 @@
 import './NavBar.css';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 export default function NavBar(){
+    const {cantidadProductos} = useContext(CartContext);
+    console.log(cantidadProductos());
     return <div><header className='header-flex'>
                         <h1><Link to={'/'}>Michi Store</Link></h1>
                         <nav>
@@ -11,7 +15,11 @@ export default function NavBar(){
                                 <li><Link to={'/categoria/tablets'}>Tablet</Link></li>
                                 <li><Link to={'/categoria/parlantes'}>Parlantes</Link></li>
                             </ul>
-                            <Link to={'/cart'}><CartWidget /></Link>
+                            <>
+                                {cantidadProductos()!==0
+                                &&<Link to={'/cart'}><CartWidget /></Link>
+                                }
+                            </>
                         </nav>
                 </header>
             </div>

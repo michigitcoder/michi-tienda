@@ -40,7 +40,7 @@ function App() {
             element = {<p>Error 404</p>}
           />
         </Routes>
-        <p>MICHI-TIENDA</p>
+        {/* <p>MICHI-TIENDA</p> */}
       </CartContextProvider>
     </div>
   );
