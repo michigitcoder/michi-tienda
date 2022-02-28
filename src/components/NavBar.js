@@ -6,7 +6,7 @@ import { CartContext } from '../context/CartContext';
 
 export default function NavBar(){
     const {cantidadProductos} = useContext(CartContext);
-    console.log(cantidadProductos());
+    // console.log(cantidadProductos());
     return <div><header className='header-flex'>
                         <h1><Link to={'/'}>Michi Store</Link></h1>
                         <nav>

@@ -23,11 +23,8 @@ export default function ItemDetail({item}){
             {itemCount===0
                 ?<ItemCount stock={item.stock} initial={1} onAdd ={onAdd}/>
                 :<div className='cartelCompra' >
-                    <div>
                     <p>Se {itemCount===1? 'agrego':'agregaron'} {itemCount} {item.descripcion} al Carrito</p>
                     <Link to={'/cart'}>Ir al carrito</Link>
-                    </div>
-                    <button>Terminar mi compra</button>
                 </div>
             }
         </div>
