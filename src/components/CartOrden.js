@@ -20,7 +20,6 @@ const CartOrden = () =>{
         if (ordenCompra!== undefined){
             subirCompra();
             actualizarStock();
-            alert("Se realizo la venta con exito");
             clearCarrito();
             setOrdenCompra(undefined);
             }
@@ -30,62 +29,38 @@ const CartOrden = () =>{
         ordenCompra.items.map((i)=> {
             const docReference = doc(db,'items',i.id);
             getDoc(docReference)
-                .then(docu=>{
-                     console.log(docu.data().stock);
-                     const stockOriginal = docu.data().stock;
+                .then(snapshot=>{
+                    //  console.log(snapshot.data().stock);
+                     const stockOriginal = snapshot.data().stock;
                      const stockNuevo = stockOriginal - i.cantidad;
-                     console.log("Stock nuevbo", stockNuevo);
                      updateDoc(docReference, {stock: stockNuevo});
                 })
-                .catch(error=>console.log(error))
+                .catch(()=>console.log("ERROR EN ACTUALIZAR STOCK"))
 
         });
         // const itemsParaActualizar = await query(collection(db, "items"), where(documentId(), "in", itemsIdOrder));
         // await console.log("escribio" , itemsParaActualizar);
     }
 
-    // const actualizarStock = async () =>{
-    // //   try{
-    //     // const itemsCollection = collection(db, 'items');
-    //     // const cartItemsIDS = order.items.map(item => item.id);    
-    //     // const itemsToUpdateQuery = await query(collection(db, "items"), where(documentId(), "in", cartItemsIDS)); //Query.
-    //     // const itemsToUpdateQuerySnapshot = await getDocs(itemsToUpdateQuery); //Respuesta de la query.
-    //     const itemsIdOrden = ordenCompra.items.map((i) =>  i.id);
-    //     const itemsActualizar = await query(collection(db, 'items'), where(documentId(), 'in', itemsIdOrden ));
-    //     console.log('items a actualizar', itemsActualizar);
-    //     const itemsActualizarSnapshot = await getDocs(itemsActualizar);
-    //     console.log('ni idea q hace',itemsActualizarSnapshot);
-    //     const batch = writeBatch(db);
-    //     console.log(itemsActualizarSnapshot.docs);
-    //     itemsActualizarSnapshot.docs.forEach((itemSnapshot) =>{
-    //         // batch.update(itemSnapshot.ref, {stock: itemSnapshot.data().stock - orden.items[index].cantidad}) //Stock del inventario - stock consumido en la compra.
-    //     // console.log(itemSnapshot.data() ,orden.items[index].cantidad);
-    //         console.log(ordenCompra.items[2].id);
-    //         console.log(itemSnapshot.data().id);
-    //         let stockResta = ordenCompra.items.find((i) => i.id === itemSnapshot.data().id);
-            
-    //         console.log(stockResta);
-    //     });
-    // }
-// ordenCompra saque de parametro
-    const subirCompra = /*async*/ () =>{
+    const subirCompra = () =>{
         const orderCollection = collection(db, 'orders');
-        /*await*/ addDoc(orderCollection, ordenCompra)
-            .then(()=>{
-                console.log("Se realizo la venta", ordenCompra)
+        addDoc(orderCollection, ordenCompra)
+            .then(({id})=>{
+                console.log("Se realizo la venta: ", ordenCompra);
+                console.log("Id orden: ",id);
+                // setIdOrden(id);
                 setOrdenCompra(ordenCompra);
+                alert(`Se realizo la venta con exito: ID = ${id}`);
             })
-            .catch((error) => console.log(error));
-        
+            .catch(() => console.log("ERROR EN SUBIR COMPRA"));
     }
 
     const cambioCampoFormulario = (evento) =>{
         setFormulario({...formulario, [evento.target.name]: evento.target.value})
     }
 
-    const  confirmarOrden = /*async*/ (evento) =>{
+    const  confirmarOrden = (evento) =>{
         evento.preventDefault();
-    // Cambio subirCompra por setOrdenCompra
         setOrdenCompra({date: new Date().toDateString(),
                         buyer: formulario,
                         items: listaCarrito(),
