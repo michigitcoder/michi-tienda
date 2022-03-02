@@ -20,12 +20,16 @@ export default function ItemDetail({item}){
             <img className='imagenDetailProducto' src = {item.ruta} alt = {item.descripcion} /> 
             <p>Descripcion:  {item.descripcion}</p>
             <p>Precio USD {item.precio}</p>
-            {itemCount===0
-                ?<ItemCount stock={item.stock} initial={1} onAdd ={onAdd}/>
-                :<div className='cartelCompra' >
-                    <p>Se {itemCount===1? 'agrego':'agregaron'} {itemCount} {item.descripcion} al Carrito</p>
-                    <Link to={'/cart'}>Ir al carrito</Link>
-                </div>
+            <p>Stock: {item.stock}</p>
+            {item.stock >0 && <>
+                    {itemCount===0
+                    ?<ItemCount stock={item.stock} initial={1} onAdd ={onAdd}/>
+                    :<div className='cartelCompra' >
+                        <p>Se {itemCount===1? 'agrego':'agregaron'} {itemCount} {item.descripcion} al Carrito</p>
+                        <Link to={'/cart'}>Ir al carrito</Link>
+                    </div>
+                    }
+                </>
             }
         </div>
     )

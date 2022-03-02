@@ -19,7 +19,7 @@ export default function CartContextProvider({children}){
         return (carrito.some((producto)=> producto.id === id))
     }
 
-    const clear = () => setCarrito([]);
+    const clearCarrito = () => setCarrito([]);
 
     const removeItem = (id) =>{
         const carritoNuevo = carrito.filter((producto) => producto.id !== id);
@@ -36,9 +36,16 @@ export default function CartContextProvider({children}){
         carrito.map((p) => total = total + (p.cantidad * p.precio));
         return total;
     }
-
+    const listaCarrito = () => {
+        let lista = [];
+        carrito.map((p) => {
+            lista = [...lista, {id: p.id,descripcion: p.descripcion,cantidad: p.cantidad,precioUnitario: p.precio}]
+        })
+        return lista;
+    }
+  
     return (
-        <CartContext.Provider value = {{carrito, addItem, clear, removeItem,cantidadProductos,totalPrecio}}>
+        <CartContext.Provider value = {{carrito, addItem, clearCarrito, removeItem,cantidadProductos,totalPrecio,listaCarrito}}>
            {children} 
         </CartContext.Provider>
     )
