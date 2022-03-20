@@ -4,4 +4,5 @@ Estudiante: Luciano Collazzi
 
 Gif del proyecto en public
 
+
 ![VideoGif](public/proyecto.gif)
