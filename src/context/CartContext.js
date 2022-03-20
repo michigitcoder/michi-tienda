@@ -51,10 +51,4 @@ export default function CartContextProvider({children}){
     )
 }
 
-// const CartContextProvider = ()=>{
-//     return ........
-// }
-// export default CartContextProvider
-// Otra forma de escribir 
-
 

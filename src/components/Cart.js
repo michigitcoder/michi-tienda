@@ -20,7 +20,6 @@ return (
             })}
             <button onClick={clearCarrito}>Vaciar Carrito</button>
             <p>TOTAL USD = {total}</p>
-            {/* <button>FINALIZAR COMPRA</button> */}
             <CartOrden />
             
         </div>

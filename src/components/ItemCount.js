@@ -6,8 +6,6 @@ export default function ItemCount({ stock, initial, onAdd}){
     
     function decrementarContador(){
         setContador((contador<=1) ? 1 : (contador - 1));
-        //<= 1 para que siempre tengas algo para agregar al carrito, 
-        //sino seria sustituirlo por <=0 para aplicarlo como pedia el desafio
     }
 
     function aumentarContador(){
