@@ -12,6 +12,7 @@ export default function CartContextProvider({children}){
 
     });
     
+    
     useEffect(
         ()=>{
             window.localStorage.setItem('productos',JSON.stringify(carrito));
