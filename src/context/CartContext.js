@@ -1,11 +1,24 @@
-import react, { createContext, useState } from "react";
+import react, { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext([]);
 
 export default function CartContextProvider({children}){
     
-    const [carrito, setCarrito] = useState([]);
+    const [carrito, setCarrito] = useState(()=>{
+                                                const datosLocales = localStorage.getItem('productos');
+                                                return datosLocales 
+                                                ? JSON.parse(datosLocales)
+                                                : [];
+
+    });
     
+    useEffect(
+        ()=>{
+            window.localStorage.setItem('productos',JSON.stringify(carrito));
+        }
+    ,[carrito])
+
+
     const addItem = (cantidad, item) =>{
         const index = carrito.findIndex(i => i.id === item.id)
         if (index > -1)
@@ -15,9 +28,9 @@ export default function CartContextProvider({children}){
         else setCarrito([...carrito, {...item, cantidad}]);
     }
     
-    const isInCart = (id) => {
-        return (carrito.some((producto)=> producto.id === id))
-    }
+    // const isInCart = (id) => {
+    //     return (carrito.some((producto)=> producto.id === id))
+    // }
 
     const clearCarrito = () => setCarrito([]);
 
